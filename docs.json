@@ -1,35 +1,75 @@
 {
   "$schema": "https://mintlify.com/docs.json",
-  "theme": "mint",
-  "name": "Mint Starter Kit",
-  "colors": {
-    "primary": "#16A34A",
-    "light": "#07C983",
-    "dark": "#15803D"
+  "name": "Phantom Developer Documentation",
+  "logo": {
+    "light": "/logo/light.svg",
+    "dark": "/logo/dark.svg"
   },
   "favicon": "/favicon.svg",
+  "colors": {
+    "primary": "#AB9FF2",
+    "light": "#C4B6FF",
+    "dark": "#8B7ED8"
+  },
   "navigation": {
     "tabs": [
       {
-        "tab": "Guides",
+        "tab": "Web Integration",
         "groups": [
           {
-            "group": "Get Started",
+            "group": "Introduction",
             "pages": [
-              "index",
-              "quickstart",
-              "development"
+              "introduction",
+              "developer-settings"
             ]
           },
           {
-            "group": "Essentials",
+            "group": "Solana Integration",
             "pages": [
-              "essentials/markdown",
-              "essentials/code",
-              "essentials/images",
-              "essentials/settings",
-              "essentials/navigation",
-              "essentials/reusable-snippets"
+              "solana/getting-started",
+              "solana/detecting-provider",
+              "solana/establishing-connection",
+              "solana/sending-legacy-transaction",
+              "solana/sending-versioned-transaction",
+              "solana/signing-message",
+              "solana/errors"
+            ]
+          },
+          {
+            "group": "Ethereum & Polygon",
+            "pages": [
+              "ethereum/getting-started",
+              "ethereum/detecting-provider",
+              "ethereum/establishing-connection",
+              "ethereum/sending-transaction",
+              "ethereum/signing-message"
+            ]
+          }
+        ]
+      },
+      {
+        "tab": "Mobile Integration",
+        "groups": [
+          {
+            "group": "Deeplinks",
+            "pages": [
+              "deeplinks/overview",
+              "deeplinks/handling-sessions",
+              "deeplinks/specifying-redirects",
+              "deeplinks/encryption",
+              "deeplinks/limitations"
+            ]
+          },
+          {
+            "group": "Provider Methods",
+            "pages": [
+              "deeplinks/methods/connect",
+              "deeplinks/methods/disconnect",
+              "deeplinks/methods/sign-send-transaction",
+              "deeplinks/methods/sign-all-transactions",
+              "deeplinks/methods/sign-transaction",
+              "deeplinks/methods/sign-message",
+              "deeplinks/methods/browse"
             ]
           }
         ]
@@ -38,18 +78,59 @@
         "tab": "API Reference",
         "groups": [
           {
-            "group": "API Documentation",
+            "group": "Ethereum Provider API",
             "pages": [
-              "api-reference/introduction"
+              "api/ethereum/overview",
+              "api/ethereum/properties",
+              "api/ethereum/events",
+              "api/ethereum/methods",
+              "api/ethereum/errors"
+            ]
+          }
+        ]
+      },
+      {
+        "tab": "Developer Tools",
+        "groups": [
+          {
+            "group": "Development Powertools",
+            "pages": [
+              "tools/blocklist",
+              "tools/sign-in-with",
+              "tools/priority-fees",
+              "tools/versioned-transactions",
+              "tools/wallet-standard"
             ]
           },
           {
-            "group": "Endpoint Examples",
+            "group": "Best Practices",
             "pages": [
-              "api-reference/endpoint/get",
-              "api-reference/endpoint/create",
-              "api-reference/endpoint/delete",
-              "api-reference/endpoint/webhook"
+              "best-practices/displaying-apps",
+              "best-practices/activity-tab",
+              "best-practices/tokens",
+              "best-practices/tokens/fungibles",
+              "best-practices/tokens/nfts",
+              "best-practices/tokens/media-types"
+            ]
+          },
+          {
+            "group": "Libraries & Integrations",
+            "pages": [
+              "integrations/web3-onboard"
+            ]
+          }
+        ]
+      },
+      {
+        "tab": "Resources",
+        "groups": [
+          {
+            "group": "Additional Resources",
+            "pages": [
+              "resources/faq",
+              "resources/demo-apps",
+              "resources/community-guides",
+              "resources/assets"
             ]
           }
         ]
@@ -58,45 +139,41 @@
     "global": {
       "anchors": [
         {
-          "anchor": "Documentation",
-          "href": "https://mintlify.com/docs",
-          "icon": "book-open-cover"
+          "anchor": "GitHub",
+          "href": "https://github.com/phantom/phantom-docs",
+          "icon": "github"
         },
         {
-          "anchor": "Community",
-          "href": "https://mintlify.com/community",
-          "icon": "slack"
+          "anchor": "Discord",
+          "href": "https://discord.gg/j5Dp7ztzvW",
+          "icon": "discord"
         },
         {
-          "anchor": "Blog",
-          "href": "https://mintlify.com/blog",
-          "icon": "newspaper"
+          "anchor": "Help Center",
+          "href": "https://help.phantom.app/",
+          "icon": "circle-question"
         }
       ]
     }
   },
-  "logo": {
-    "light": "/logo/light.svg",
-    "dark": "/logo/dark.svg"
-  },
   "navbar": {
     "links": [
       {
-        "label": "Support",
-        "href": "mailto:hi@mintlify.com"
+        "label": "Download",
+        "href": "https://phantom.app/download"
       }
     ],
     "primary": {
       "type": "button",
-      "label": "Dashboard",
-      "href": "https://dashboard.mintlify.com"
+      "label": "Get Started",
+      "href": "/introduction"
     }
   },
   "footer": {
     "socials": {
-      "x": "https://x.com/mintlify",
-      "github": "https://github.com/mintlify",
-      "linkedin": "https://linkedin.com/company/mintlify"
+      "x": "https://x.com/phantom",
+      "github": "https://github.com/phantom",
+      "discord": "https://discord.gg/j5Dp7ztzvW"
     }
   }
 }
