@@ -19,9 +19,9 @@ The entire `session` param is encoded in base58. A `session` should contain the 
 
 Phantom will decode and validate the `session` param on every request. To decode the session, we decode it with `bs58`, slice off the first 64 bytes of the signature, and the treat the rest as JSON data. We then sign the JSON data again with the same keypair and compare that signature against the signature in the session. If the signatures are the same, the session is valid. Otherwise, we conclude that the session has been faked, as the signature does not belong to the keypair it claims it does.
 
-{% hint style="info" %}
-Calling `nacl.sign.open` conveniently verifies and returns the original object. For more information, please review [Encryption Resources](encryption.md#encryption-resources).
-{% endhint %}
+> **ℹ️ Info**
+> 
+> Calling `nacl.sign.open` conveniently verifies and returns the original object. For more information, please review [Encryption Resources](encryption.md#encryption-resources).
 
 After we determine that the session is valid, we still need to ensure that the JSON fields line up with what we expect. An app could give a session for `pubkey A` when the user is currently using `pubkey B` in Phantom. In such a scenario, that session should not allow an app to request signatures. Instead, the app must issue a new connect request or use the correct session.
 

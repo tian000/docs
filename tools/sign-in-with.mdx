@@ -62,7 +62,7 @@ Resources:
 - https://foo.com
 - https://bar.com`;
 const encodedMessage = new TextEncoder().encode(message);
-const signedMessage = await provider.signMessage(encodedMessage, "utf8");java
+const signedMessage = await provider.signMessage(encodedMessage, "utf8");
 ```
 
 {% endtab %}
@@ -90,7 +90,7 @@ const signedMessage = await provider.request({
     params: {
          message: encodedMessage,
          display: "utf8",
-    
+    }
 });
 ```
 
@@ -143,10 +143,10 @@ Resources:
 const encodedMessage = new TextEncoder().encode(message);
 const signedMessage = await provider.request({
     method: "signMessage",
-    params
+    params: {
          message: encodedMessage,
          display: "utf8",
-    
+    }
 });
 ```
 
@@ -203,10 +203,10 @@ Resources:
 const encodedMessage = new TextEncoder().encode(message);
 const signedMessage = await provider.request({
     method: "signMessage",
-    params
+    params: {
          message: encodedMessage,
          display: "utf8",
-    
+    }
 });
 ```
 
@@ -263,10 +263,10 @@ Resources:
 const encodedMessage = new TextEncoder().encode(message);
 const signedMessage = await provider.request({
     method: "signMessage",
-    params
+    params: {
          message: encodedMessage,
          display: "utf8",
-    
+    }
 });
 ```
 

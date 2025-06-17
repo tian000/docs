@@ -30,9 +30,9 @@ The serialized format of SIW messages is as follows:
 
 The Sign In With X standard is defined by [CAIP-122](https://github.com/ChainAgnostic/CAIPs/blob/master/CAIPs/caip-122). It uses [CAIP-10](https://github.com/ChainAgnostic/CAIPs/blob/master/CAIPs/caip-10) identifiers for the `address` field and [CAIP-2](https://github.com/ChainAgnostic/CAIPs/blob/master/CAIPs/caip-2) for `chain-id`.
 
-{% hint style="info" %}
-While CAIP-122 is technically chain-agnostic, only Ethereum and Solana parsing are supported at this time.
-{% endhint %}
+> **ℹ️ Info**
+> 
+> While CAIP-122 is technically chain-agnostic, only Ethereum and Solana parsing are supported at this time.
 
 #### Ethereum Example
 
@@ -83,7 +83,7 @@ const signedMessage = await provider.request({
     params: {
          message: encodedMessage,
          display: "utf8",
-    
+    }
 });
 ```
 
@@ -140,10 +140,10 @@ Resources:
 const encodedMessage = new TextEncoder().encode(message);
 const signedMessage = await provider.request({
     method: "signMessage",
-    params
+    params: {
          message: encodedMessage,
          display: "utf8",
-    
+    }
 });
 ```
 

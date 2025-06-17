@@ -103,7 +103,7 @@ const lookupMessage = new TransactionMessage({
 }).compileToV0Message();
 
 const lookupTransaction = new VersionedTransaction(lookupMessage);
-const lookupSignature = await signAndSendTransaction(provider, lookupTransaction);</code></pre>
+const lookupSignature = await provider.signAndSendTransaction(lookupTransaction);</code></pre>
 
 {% endtab %}
 {% endtabs %}
@@ -139,7 +139,7 @@ const extensionMessageV0 = new TransactionMessage({
 }).compileToV0Message();
 
 const extensionTransactionV0 = new VersionedTransaction(extensionMessageV0);
-const extensionSignature = await signAndSendTransaction(provider, extensionTransactionV0);
+const extensionSignature = await provider.signAndSendTransaction(extensionTransactionV0);
 ```
 
 {% endtab %}
@@ -213,7 +213,7 @@ const messageV0 = new TransactionMessage({
 
 // make a versioned transaction
 const transactionV0 = new VersionedTransaction(messageV0);
-const signature = await signAndSendTransaction(provider, transactionV0);
+const signature = await provider.signAndSendTransaction(transactionV0);
 ```
 
 {% endtab %}

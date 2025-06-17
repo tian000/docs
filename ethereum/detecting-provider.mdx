@@ -14,8 +14,7 @@ const isPhantomInstalled = window?.ethereum?.isPhantom
 
 If Phantom is not installed, we recommend you redirect your users to [our website](https://phantom.app/). Altogether, this may look like the following.
 
-{% tabs %}
-{% tab title="window.phantom" %}
+**Using window.phantom:**
 
 ```typescript
 const getProvider = () => {
@@ -32,9 +31,7 @@ const getProvider = () => {
 };
 ```
 
-{% endtab %}
-
-{% tab title="window.ethereum" %}
+**Using window.ethereum:**
 
 ```typescript
 const getProvider = () => {
@@ -50,8 +47,5 @@ const getProvider = () => {
   window.open('https://phantom.app/', '_blank');
 };
 ```
-
-{% endtab %}
-{% endtabs %}
 
 For an example of how a React application can detect Phantom, please refer to the [`getProvider` function in our sandbox](https://github.com/phantom-labs/eth_sandbox/blob/main/src/utils/getProvider.ts).&#x20;

@@ -81,11 +81,11 @@
           {
             "group": "Ethereum Provider API",
             "pages": [
-              "api/ethereum/overview",
-              "api/ethereum/properties",
-              "api/ethereum/events",
-              "api/ethereum/methods",
-              "api/ethereum/errors"
+              "ethereum-api/overview",
+              "ethereum-api/properties",
+              "ethereum-api/events",
+              "ethereum-api/methods",
+              "ethereum-api/errors"
             ]
           }
         ]
@@ -163,12 +163,7 @@
         "label": "Download",
         "href": "https://phantom.app/download"
       }
-    ],
-    "primary": {
-      "type": "button",
-      "label": "Get Started",
-      "href": "/introduction"
-    }
+    ]
   },
   "footer": {
     "socials": {

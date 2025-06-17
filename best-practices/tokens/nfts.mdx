@@ -30,9 +30,7 @@ When displaying the detail view of an individual collectible, Phantom will prior
 
 Phantom supports a wide-range of media types. For a full list, please refer to:
 
-{% content-ref url="supported-media-types.md" %}
-[supported-media-types.md](supported-media-types)
-{% endcontent-ref %}
+[Supported Media Types](supported-media-types.md)
 
 **Selecting Media**
 
@@ -53,7 +51,7 @@ If a media source is found in `properties.files`, and that source is defined as 
 | Field | Type               | Description                                                                                                                                                                                                                                                                                  |
 | ----- | ------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | type  | string             | The media type of the file. If selected, **Phantom will use this to determine the media type** (Example: "image/png").                                                                                                                                                                       |
-| uri   | string             | The uri source of the file (Example: <https://asfh3uxyeoyvtkfqc7jagy3mhtsszhyubnc3wfss5ismdgtw.arweave.net/BIp90vgjs_VmosBfSA2NsPOUsnxQLRbsWUuo-kwZp2o?ext=png>) |
+| uri   | string             | The uri source of the file (Example: `https://asfh3uxyeoyvtkfqc7jagy3mhtsszhyubnc3wfss5ismdgtw.arweave.net/BIp90vgjs_VmosBfSA2NsPOUsnxQLRbsWUuo-kwZp2o?ext=png`) |
 | cdn   | boolean (optional) | An optional flag that dictates if the file is hosted on a cdn. If `true`, Phantom will select this file as the primary source file.                                                                                                                                                          |
 
 In cases where Phantom cannot find a source from `properties.files`, it may fallback to a media source that is defined as a `string` (e.g. `animation_url` or `image`). In these cases, Phantom will look for data in the following order of preference:
