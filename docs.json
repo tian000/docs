@@ -1,0 +1,250 @@
+{
+  "$schema": "https://mintlify.com/docs.json",
+  "theme": "mint",
+  "name": "Phantom Developer Documentation",
+  "description": "Phantom is a crypto wallet that can be used to manage digital assets and access decentralized applications on multiple blockchains.",
+  "logo": {
+    "light": "/logo/light.svg",
+    "dark": "/logo/dark.svg"
+  },
+  "favicon": "/favicon.svg",
+  "colors": {
+    "primary": "#9563FF",
+    "light": "#AE87FF",
+    "dark": "#7839FF"
+  },
+  "navbar": {
+    "links": [
+      {
+        "label": "Support",
+        "href": "https://help.phantom.app"
+      }
+    ],
+    "primary": {
+      "type": "button",
+      "label": "Download Phantom",
+      "href": "https://phantom.app/download"
+    }
+  },
+  "navigation": {
+    "global": {
+      "anchors": [
+        {
+          "anchor": "Community",
+          "icon": "discord",
+          "href": "https://github.com/orgs/phantom/discussions"
+        },
+        {
+          "anchor": "GitHub",
+          "icon": "github",
+          "href": "https://github.com/phantom"
+        }
+      ]
+    },
+    "dropdowns": [
+      {
+        "dropdown": "Getting Started",
+        "icon": "rocket",
+        "description": "Introduction to Phantom wallet development",
+        "pages": ["introduction"]
+      },
+      {
+        "dropdown": "Blockchain Integrations",
+        "icon": "link",
+        "description": "Integrate with different blockchain networks",
+        "groups": [
+          {
+            "group": "Solana",
+            "pages": [
+              "solana/integrating-phantom",
+              "solana/detecting-the-provider",
+              "solana/establishing-a-connection",
+              "solana/sending-a-transaction",
+              "solana/sending-a-transaction-1",
+              "solana/signing-a-message",
+              "solana/errors"
+            ]
+          },
+          {
+            "group": "Ethereum, Monad Testnet, Base, & Polygon",
+            "pages": [
+              "ethereum-monad-testnet-base-and-polygon/getting-started",
+              "ethereum-monad-testnet-base-and-polygon/detecting-the-provider",
+              "ethereum-monad-testnet-base-and-polygon/establishing-a-connection",
+              "ethereum-monad-testnet-base-and-polygon/sending-a-transaction",
+              "ethereum-monad-testnet-base-and-polygon/signing-a-message"
+            ]
+          },
+          {
+            "group": "Sui",
+            "pages": [
+              "sui/getting-started-with-sui",
+              "sui/detecting-the-provider",
+              "sui/establishing-a-connection",
+              "sui/sending-a-transaction",
+              "sui/signing-a-message"
+            ]
+          },
+          {
+            "group": "Bitcoin",
+            "pages": [
+              "bitcoin/integrating-phantom",
+              "bitcoin/detecting-the-provider",
+              "bitcoin/establishing-a-connection",
+              "bitcoin/sending-a-transaction",
+              "bitcoin/signing-a-message",
+              "bitcoin/provider-api-reference"
+            ]
+          }
+        ]
+      },
+      {
+        "dropdown": "API Reference",
+        "icon": "terminal",
+        "description": "Detailed API documentation and reference",
+        "groups": [
+          {
+            "group": "EVM Provider API Reference",
+            "pages": [
+              "ethereum-monad-testnet-base-and-polygon/provider-api-reference/README",
+              {
+                "group": "Properties",
+                "pages": [
+                  "ethereum-monad-testnet-base-and-polygon/provider-api-reference/properties/README",
+                  "ethereum-monad-testnet-base-and-polygon/provider-api-reference/properties/isphantom",
+                  "ethereum-monad-testnet-base-and-polygon/provider-api-reference/properties/chainid",
+                  "ethereum-monad-testnet-base-and-polygon/provider-api-reference/properties/networkversion",
+                  "ethereum-monad-testnet-base-and-polygon/provider-api-reference/properties/selectedaddress",
+                  "ethereum-monad-testnet-base-and-polygon/provider-api-reference/properties/_events",
+                  "ethereum-monad-testnet-base-and-polygon/provider-api-reference/properties/_eventscount"
+                ]
+              },
+              {
+                "group": "Events",
+                "pages": [
+                  "ethereum-monad-testnet-base-and-polygon/provider-api-reference/events/README",
+                  "ethereum-monad-testnet-base-and-polygon/provider-api-reference/events/connect",
+                  "ethereum-monad-testnet-base-and-polygon/provider-api-reference/events/accounts-changed",
+                  "ethereum-monad-testnet-base-and-polygon/provider-api-reference/events/disconnect",
+                  "ethereum-monad-testnet-base-and-polygon/provider-api-reference/events/chain-changed"
+                ]
+              },
+              {
+                "group": "Methods",
+                "pages": [
+                  "ethereum-monad-testnet-base-and-polygon/provider-api-reference/methods/README",
+                  "ethereum-monad-testnet-base-and-polygon/provider-api-reference/methods/isconnected",
+                  "ethereum-monad-testnet-base-and-polygon/provider-api-reference/methods/request"
+                ]
+              },
+              "ethereum-monad-testnet-base-and-polygon/provider-api-reference/errors"
+            ]
+          }
+        ]
+      },
+      {
+        "dropdown": "Mobile Integration",
+        "icon": "mobile",
+        "description": "Phantom Deeplinks for mobile app integration",
+        "groups": [
+          {
+            "group": "Phantom Deeplinks",
+            "pages": [
+              "phantom-deeplinks/deeplinks-ios-and-android",
+              "phantom-deeplinks/handling-sessions",
+              "phantom-deeplinks/specifying-redirects",
+              "phantom-deeplinks/encryption",
+              "phantom-deeplinks/limitations"
+            ]
+          },
+          {
+            "group": "Provider Methods",
+            "pages": [
+              "phantom-deeplinks/provider-methods/README",
+              "phantom-deeplinks/provider-methods/connect",
+              "phantom-deeplinks/provider-methods/disconnect",
+              "phantom-deeplinks/provider-methods/signandsendtransaction",
+              "phantom-deeplinks/provider-methods/signalltransactions",
+              "phantom-deeplinks/provider-methods/signtransaction",
+              "phantom-deeplinks/provider-methods/signmessage"
+            ]
+          },
+          {
+            "group": "Other Methods",
+            "pages": [
+              "phantom-deeplinks/other-methods/README",
+              "phantom-deeplinks/other-methods/browse",
+              "phantom-deeplinks/other-methods/fungible",
+              "phantom-deeplinks/other-methods/swap"
+            ]
+          }
+        ]
+      },
+      {
+        "dropdown": "Developer Tools",
+        "icon": "wrench",
+        "description": "Advanced tools and features for developers",
+        "pages": [
+          "developer-powertools/auto-confirm",
+          "developer-powertools/domain-and-transaction-warnings",
+          "developer-powertools/mobile-web-debugging",
+          "developer-powertools/blocklist",
+          "developer-powertools/shortcuts",
+          "developer-powertools/signing-a-message",
+          "developer-powertools/solana-actions-and-blinks",
+          "developer-powertools/solana-priority-fees",
+          "developer-powertools/solana-token-extensions-token22",
+          "developer-powertools/solana-versioned-transactions",
+          "developer-powertools/testnet-mode",
+          "developer-powertools/token-pages",
+          "developer-powertools/wallet-standard"
+        ]
+      },
+      {
+        "dropdown": "Best Practices",
+        "icon": "star",
+        "description": "Guidelines and best practices for development",
+        "groups": [
+          {
+            "group": "Application Integration",
+            "pages": [
+              "best-practices/launching-a-dapp",
+              "best-practices/displaying-apps-within-the-activity-tab",
+              "best-practices/displaying-your-app"
+            ]
+          },
+          {
+            "group": "Token Display",
+            "pages": [
+              "best-practices/tokens/README",
+              "best-practices/tokens/home-tab-fungibles",
+              "best-practices/tokens/collectibles-nfts-and-semi-fungibles",
+              "best-practices/tokens/supported-media-types"
+            ]
+          }
+        ]
+      },
+      {
+        "dropdown": "Resources",
+        "icon": "book-open",
+        "description": "Additional resources and community guides",
+        "pages": [
+          "resources/faq",
+          "resources/sandbox",
+          "resources/community-guides-and-sdks",
+          "resources/assets"
+        ]
+      }
+    ]
+  },
+  "footer": {
+    "socials": {
+      "website": "https://phantom.app",
+      "github": "https://github.com/phantom",
+      "discord": "https://github.com/orgs/phantom/discussions"
+    }
+  },
+  "contextual": {
+    "options": ["copy", "view", "chatgpt", "claude"]
+  }
+} 
