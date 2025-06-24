@@ -2,7 +2,7 @@
 
 When a dApp is connected to Phantom, it can also request that the user signs a given message. Applications are free to write their own messages which will be displayed to users from within Phantom's signature prompt. Message signatures do not involve network fees and are a convenient way for apps to verify ownership of an address.
 
-<figure><img src="../.gitbook/assets/image (18).png" alt="" width="375"><figcaption><p>An example of signing "hello world" with the Phantom Bitcoin provider</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (18).png" alt="" width="375" /><figcaption><p>An example of signing "hello world" with the Phantom Bitcoin provider</p></figcaption></figure>
 
 Phantom’s `signMessage` function accepts two parameters: an encoded `message` and an `address` that should be used to sign the message. It returns a Promise that resolves if the user approves the signature request. Once resolved, it contains the resulting `signature`.
 

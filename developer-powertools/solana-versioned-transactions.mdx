@@ -11,7 +11,7 @@ Why do we need the above?
 
 Legacy transactions have a major issue: Maximum allowed size of 1232 bytes, and hence the number of accounts that can fit in an atomic transaction: 35 addresses.
 
-<figure><img src="../.gitbook/assets/image (7).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (7).png" alt="" /><figcaption></figcaption></figure>
 
 This is problematic as developers are limited with this threshold and are unable to include >35 signature-free account / program addresses in a single transaction. This is where Address Lookup Tables (LUT) come into the picture.
 
@@ -21,11 +21,11 @@ This is problematic as developers are limited with this threshold and are unable
 
 The idea behind Address Lookup Tables is to store account addresses in array-like data structures on-chain. Once accounts are stored in this table, the address of the table can be referenced in a transaction message using 1-byte u8 indices.
 
-<figure><img src="../.gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (2).png" alt="" /><figcaption></figcaption></figure>
 
 This opens up space as addresses need not be stored inside transaction messages, but only be referenced. This allows 2^8=256 accounts to be included in 1 tx, as accounts are referenced using u8 indices. Here's an example of its power:
 
-{% embed url="https://twitter.com/PierreArowana/status/1545186073034334208?s=20" %}
+[Pierre Arowana Tweet about Versioned Transactions](https://twitter.com/PierreArowana/status/1545186073034334208?s=20)
 
 ### RPC Changes <a href="#heading-rpc-changes" id="heading-rpc-changes"></a>
 
@@ -42,7 +42,7 @@ The following parameter needs to be added to the requests:
 
 If `maxSupportedTransactionVersion` is not explicitly added to the request, the transaction version will fallback to `legacy`. Any block that contains a versioned transaction will return with an error by the client in the case of a legacy transaction.
 
-{% embed url="https://twitter.com/jacobvcreech/status/1551673297972101120?ref_src=twsrc%5Etfw%7Ctwcamp%5Etweetembed%7Ctwterm%5E1551673302283960324%7Ctwgr%5E4eec7dc9ba28cb9513757c79cddba04e61854a74%7Ctwcon%5Es2_&ref_url=https%3A%2F%2Fanvit.hashnode.dev%2Fversioned-transactions" %}
+[Jacob Creech Tweet about Versioned Transactions](https://twitter.com/jacobvcreech/status/1551673297972101120?ref_src=twsrc%5Etfw%7Ctwcamp%5Etweetembed%7Ctwterm%5E1551673302283960324%7Ctwgr%5E4eec7dc9ba28cb9513757c79cddba04e61854a74%7Ctwterm%5E1551673302283960324%7Ctwgr%5E4eec7dc9ba28cb9513757c79cddba04e61854a74%7Ctwcon%5Es1_&ref_url=http%3A%2F%2Flocalhost%3A3000%2F)
 
 You can set this via JSON formatted requests to the RPC endpoint like below:
 
@@ -86,8 +86,8 @@ Check out how to build and send Versioned Transactions and Lookup Tables [on thi
 
 ### Further Reading
 
-{% embed url="https://beta.docs.solana.com/developing/versioned-transactions#how-create-a-versioned-transaction" %}
+[How to create a versioned transaction - Solana Docs](https://beta.docs.solana.com/developing/versioned-transactions#how-create-a-versioned-transaction)
 
-{% embed url="https://beta.docs.solana.com/developing/lookup-tables#how-to-create-an-address-lookup-table" %}
+[How to create an address lookup table - Solana Docs](https://beta.docs.solana.com/developing/lookup-tables#how-to-create-an-address-lookup-table)
 
-{% embed url="https://anvit.hashnode.dev/versioned-transactions" %}
+[Versioned Transactions - Anvit Hashnode](https://anvit.hashnode.dev/versioned-transactions)

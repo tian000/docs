@@ -43,8 +43,8 @@ The Sign In With Ethereum standard is defined by [EIP-4361](https://eips.ethereu
 
 #### Example
 
-{% tabs %}
-{% tab title="signMessage()" %}
+**signMessage():**
+
 ```javascript
 const provider = getProvider(); // see "Detecting the Provider"
 const message = `magiceden.io wants you to sign in with your Ethereum account:
@@ -63,9 +63,9 @@ Resources:
 const encodedMessage = new TextEncoder().encode(message);
 const signedMessage = await provider.signMessage(encodedMessage, "utf8");
 ```
-{% endtab %}
 
-{% tab title="request()" %}
+**request():**
+
 ```javascript
 const provider = getProvider(); // see "Detecting the Provider"
 const message = `magiceden.io wants you to sign in with your Ethereum account:
@@ -84,27 +84,23 @@ Resources:
 const encodedMessage = new TextEncoder().encode(message);
 const signedMessage = await provider.request({
     method: "signMessage",
-    params
+    params: {
          message: encodedMessage,
          display: "utf8",
-    
+    }
 });
 ```
-{% endtab %}
-{% endtabs %}
 
 ### Sign In With X
 
 The Sign In With X standard is defined by [CAIP-122](https://github.com/ChainAgnostic/CAIPs/blob/master/CAIPs/caip-122.md). It uses [CAIP-10](https://github.com/ChainAgnostic/CAIPs/blob/master/CAIPs/caip-10.md) identifiers for the `address` field and [CAIP-2](https://github.com/ChainAgnostic/CAIPs/blob/master/CAIPs/caip-2.md) for `chain-id`.
 
-{% hint style="info" %}
-While CAIP-122 is technically chain-agnostic, only Ethereum and Solana parsing are supported at this time.
-{% endhint %}
+> **Info:** While CAIP-122 is technically chain-agnostic, only Ethereum and Solana parsing are supported at this time.
 
 #### Ethereum Example
 
-{% tabs %}
-{% tab title="signMessage()" %}
+**signMessage():**
+
 ```javascript
 const provider = getProvider(); // see "Detecting the Provider"
 const message = `magiceden.io wants you to sign in with your Ethereum account:
@@ -121,11 +117,11 @@ Resources:
 - https://foo.com
 - https://bar.com`;
 const encodedMessage = new TextEncoder().encode(message);
-const signedMessage = await provider.signMessage(encodedMessage, "utf8");java
+const signedMessage = await provider.signMessage(encodedMessage, "utf8");
 ```
-{% endtab %}
 
-{% tab title="request()" %}
+**request():**
+
 ```javascript
 const provider = getProvider(); // see "Detecting the Provider"
 const message = `magiceden.io wants you to sign in with your Ethereum account:
@@ -147,16 +143,14 @@ const signedMessage = await provider.request({
     params: {
          message: encodedMessage,
          display: "utf8",
-    
+    }
 });
 ```
-{% endtab %}
-{% endtabs %}
 
 #### Solana Example
 
-{% tabs %}
-{% tab title="signMessage()" %}
+**signMessage():**
+
 ```javascript
 const provider = getProvider(); // see "Detecting the Provider"
 const message = `magiceden.io wants you to sign in with your Solana account:
@@ -175,9 +169,9 @@ Resources:
 const encodedMessage = new TextEncoder().encode(message);
 const signedMessage = await provider.signMessage(encodedMessage, "utf8");
 ```
-{% endtab %}
 
-{% tab title="request()" %}
+**request():**
+
 ```javascript
 const provider = getProvider(); // see "Detecting the Provider"
 const message = `magiceden.io wants you to sign in with your Solana account:
@@ -196,12 +190,12 @@ Resources:
 const encodedMessage = new TextEncoder().encode(message);
 const signedMessage = await provider.request({
     method: "signMessage",
-    params
+    params: {
          message: encodedMessage,
          display: "utf8",
-    
+    }
 });
 ```
-{% endtab %}
-{% endtabs %}
+
+> **Info:** Phantom uses Ed25519 signatures for Solana message signatures. To verify a message signature, you can use the [tweetnacl](https://www.npmjs.com/package/tweetnacl) npm package.
 

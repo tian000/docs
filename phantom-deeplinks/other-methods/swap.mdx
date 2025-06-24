@@ -1,14 +1,12 @@
 # Swap
 
-{% embed url="https://youtu.be/qJNv7lpYmtw" %}
+[Watch Swap Demo](https://youtu.be/qJNv7lpYmtw)
 
 Phantom supports deeplinking directly to the in-app swapper. Developers can specify which tokens should be prefilled in the `buy` and `sell` fields. In addition to swapping tokens on a single chain, the swapper can also be used to bridge stablecoins across chains (i.e. USDT on Ethereum -> USDC on Solana).
 
 The `swap` deeplink can be used at anytime. It does not need to be proceeded by a [Connect](https://docs.phantom.app/phantom-deeplinks/provider-methods/connect) event, as it does not require a `session` param.
 
-{% hint style="info" %}
-`swap` deeplinks are not intended to be pasted into mobile web browsers. These deeplinks must either be handled by an app or tapped on by an end user.
-{% endhint %}
+> **Info:** `swap` deeplinks are not intended to be pasted into mobile web browsers. These deeplinks must either be handled by an app or tapped on by an end user.
 
 ### URL Structure <a href="#url-structure" id="url-structure"></a>
 

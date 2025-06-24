@@ -4,9 +4,7 @@ On October 10, 2022, Solana introduced the concept of [Versioned Transactions](h
 
 The goal of `v0` is to increase the maximum size of a transaction, and hence the number of accounts that can fit in a single atomic transaction. With LUTs, developers can now build transactions with a maximum of 256 accounts, as compared to the limit of 35 accounts in legacy transactions that do not utilize LUTs.
 
-{% hint style="info" %}
-For a dive deep on Versioned Transactions, LUTs, and how the above changes affect the anatomy of a transaction, you can read [this detailed guide](https://anvit.hashnode.dev/versioned-transactions).
-{% endhint %}
+> **Info:** For a dive deep on Versioned Transactions, LUTs, and how the above changes affect the anatomy of a transaction, you can read [this detailed guide](https://anvit.hashnode.dev/versioned-transactions).
 
 On this page, we'll go over the following:
 
@@ -22,8 +20,8 @@ Versioned transactions are built in a very similar fashion to [legacy transactio
 
 The following example show how to build a simple transfer instruction. Once the transfer instruction is made, a `MessageV0` formatted transaction message is constructed with the transfer instruction. Finally, a new `VersionedTransaction` is created, parsing in the `v0` compatible message.
 
-{% tabs %}
-{% tab title="createTransactionV0()" %}
+**createTransactionV0():**
+
 ```typescript
 // create array of instructions
 const instructions = [
@@ -44,8 +42,6 @@ const messageV0 = new TransactionMessage({
 // make a versioned transaction
 const transactionV0 = new VersionedTransaction(messageV0);
 ```
-{% endtab %}
-{% endtabs %}
 
 Check out the [`createTransferTransactionV0()`](https://github.com/phantom-labs/sandbox/blob/main/src/utils/createTransferTransactionV0.ts) function in our code sandbox for a live example of creating a versioned transaction.
 
@@ -53,8 +49,8 @@ Check out the [`createTransferTransactionV0()`](https://github.com/phantom-labs/
 
 Once a Versioned transaction is created, it can be signed and sent via Phantom using the `signAndSendTransaction` method on the provider. The call will return a [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise) for an object containing the `signature`. This is the same way a legacy transaction is sent via the Phantom provider.
 
-{% tabs %}
-{% tab title="signAndSendTransaction()" %}
+**signAndSendTransaction():**
+
 ```javascript
 const provider = getProvider(); // see "Detecting the Provider"
 const network = "<NETWORK_URL>";
@@ -63,8 +59,6 @@ const versionedTransaction = new VersionedTransaction();
 const { signature } = await provider.signAndSendTransaction(versionedTransaction);
 await connection.getSignatureStatus(signature);
 ```
-{% endtab %}
-{% endtabs %}
 
 You can also specify a `SendOptions` [object](https://solana-labs.github.io/solana-web3.js/modules.html#SendOptions) as a second argument into `signAndSendTransaction()` or as an `options` parameter when using `request`.
 
@@ -80,11 +74,12 @@ With the `@solana/web3.js` [`createLookupTable`](https://solana-labs.github.io/s
 
 Here's a code snippet that creates a Lookup Table.
 
-{% tabs %}
-{% tab title="createAddressLookupTable()" %}
-<pre class="language-typescript"><code class="lang-typescript">// create an Address Lookup Table
-<strong>const [lookupTableInst, lookupTableAddress] = AddressLookupTableProgram.createLookupTable({
-</strong>  authority: publicKey,
+**createAddressLookupTable():**
+
+```typescript
+// create an Address Lookup Table
+const [lookupTableInst, lookupTableAddress] = AddressLookupTableProgram.createLookupTable({
+  authority: publicKey,
   payer: publicKey,
   recentSlot: slot,
 });
@@ -99,9 +94,7 @@ const lookupMessage = new TransactionMessage({
 
 const lookupTransaction = new VersionedTransaction(lookupMessage);
 const lookupSignature = await signAndSendTransaction(provider, lookupTransaction);
-</code></pre>
-{% endtab %}
-{% endtabs %}
+```
 
 Please refer to the [`handleSignAndSendTransactionV0WithLookupTable()`](https://github.com/phantom-labs/sandbox/blob/78dc35fe140140a961345a6af30a058e1e19a7aa/src/App.tsx#L218) in our code sandbox for a live demo of creating a lookup table.
 
@@ -109,8 +102,8 @@ Please refer to the [`handleSignAndSendTransactionV0WithLookupTable()`](https://
 
 Once an Address Lookup Table is created, it can then be extended (i.e. accounts can be appended to the table). Using the `@solana/web3.js` library, you can create a new `extend` instruction using the [`extendLookupTable`](https://solana-labs.github.io/solana-web3.js/classes/AddressLookupTableProgram.html#extendLookupTable) method. Once the extend instruction is created, it can be sent in a transaction.
 
-{% tabs %}
-{% tab title="extendAddressLookupTable()" %}
+**extendAddressLookupTable():**
+
 ```typescript
 // add addresses to the `lookupTableAddress` table via an `extend` instruction
 const extendInstruction = AddressLookupTableProgram.extendLookupTable({
@@ -135,8 +128,6 @@ const extensionMessageV0 = new TransactionMessage({
 const extensionTransactionV0 = new VersionedTransaction(extensionMessageV0);
 const extensionSignature = await signAndSendTransaction(provider, extensionTransactionV0);
 ```
-{% endtab %}
-{% endtabs %}
 
 Please refer to the [`handleSignAndSendTransactionV0WithLookupTable()`](https://github.com/phantom-labs/sandbox/blob/78dc35fe140140a961345a6af30a058e1e19a7aa/src/App.tsx#L218) in our code sandbox for a live demo of extending a lookup table.
 
@@ -152,21 +143,19 @@ At this point, we are now ready to sign and send a `VersionedTransaction` utiliz
 
 First, we need to fetch the account of the created Address Lookup Table.
 
-{% tabs %}
-{% tab title="getAddressLookupTable()" %}
+**getAddressLookupTable():**
+
 ```typescript
 // get the table from the cluster
 const lookupTableAccount = await connection.getAddressLookupTable(lookupTableAddress).then((res) => res.value);
 // `lookupTableAccount` will now be a `AddressLookupTableAccount` object
 console.log('Table address from cluster:', lookupTableAccount.key.toBase58());
 ```
-{% endtab %}
-{% endtabs %}
 
 We can also parse and read all the addresses currently stores in the fetched Address Lookup Table.
 
-{% tabs %}
-{% tab title="Parse and Read addresses" %}
+**Parse and Read addresses:**
+
 ```typescript
 // Loop through and parse all the address stored in the table
 for (let i = 0; i < lookupTableAccount.state.addresses.length; i++) {
@@ -174,13 +163,9 @@ for (let i = 0; i < lookupTableAccount.state.addresses.length; i++) {
   console.log(i, address.toBase58());
 }
 ```
-{% endtab %}
-{% endtabs %}
 
 We can now create the instructions array with an arbitrary transfer instruction, just the way we did while creating the `VersionedTransaction` earlier. This `VersionedTransaction` can then be sent using the `signAndSendTransaction()` provider function.
 
-{% tabs %}
-{% tab title="" %}
 ```typescript
 // create an array with your desired `instructions`
 // in this case, just a transfer instruction
@@ -203,7 +188,5 @@ const messageV0 = new TransactionMessage({
 const transactionV0 = new VersionedTransaction(messageV0);
 const signature = await signAndSendTransaction(provider, transactionV0);
 ```
-{% endtab %}
-{% endtabs %}
 
 Please refer to the [`handleSignAndSendTransactionV0WithLookupTable()`](https://github.com/phantom-labs/sandbox/blob/78dc35fe140140a961345a6af30a058e1e19a7aa/src/App.tsx#L218) in our code sandbox for a live demo of signing and sending a versioned transaction utilizing an Address Lookup Table.

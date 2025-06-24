@@ -8,8 +8,8 @@ Once permission is established for the first time, the web application's domain 
 
 The **recommended** and **easiest** way to connect to Phantom is by calling `window.phantom.solana.connect()`. However, the provider also exposes a `request` JSON RPC interface.
 
-{% tabs %}
-{% tab title="connect()" %}
+**connect():**
+
 ```javascript
 const provider = getProvider(); // see "Detecting the Provider"
 try {
@@ -20,9 +20,9 @@ try {
     // { code: 4001, message: 'User rejected the request.' }
 }
 ```
-{% endtab %}
 
-{% tab title="request()" %}
+**request():**
+
 ```javascript
 const provider = getProvider(); // see "Detecting the Provider"
 try {
@@ -33,8 +33,6 @@ try {
     // { code: 4001, message: 'User rejected the request.' }
 }
 ```
-{% endtab %}
-{% endtabs %}
 
 The `connect()` call will return a [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise) that resolves when the user accepts the connection request, and reject (throw when awaited) when the user declines the request or closes the pop-up. See [Errors](errors.md) for a breakdown of error messages Phantom may emit.
 
@@ -59,19 +57,17 @@ After a web application connects to Phantom for the first time, it becomes trust
 
 To implement this, applications should pass an `onlyIfTrusted` option into the `connect()` call.
 
-{% tabs %}
-{% tab title="connect()" %}
+**connect():**
+
 ```javascript
 provider.connect({ onlyIfTrusted: true });
 ```
-{% endtab %}
 
-{% tab title="request()" %}
+**request():**
+
 ```javascript
 window.solana.request({ method: "connect", params: { onlyIfTrusted: true }});
 ```
-{% endtab %}
-{% endtabs %}
 
 If this flag is present, Phantom will only eagerly connect and emit a `connect` event if the application is trusted. If the application is not trusted, Phantom will throw a [`4001` error](errors.md) and remain disconnected until the user is prompted to connect without an `onlyIfTrusted` flag. In either case, Phantom will not open a pop-up window, making this convenient to use on all page loads.
 
@@ -100,19 +96,17 @@ If a wallet disconnects from a trusted app and then attempts to reconnect at a l
 
 Disconnecting mirrors the same process as connecting. However, it is also possible for the wallet to initiate the disconnection, rather than the application itself.
 
-{% tabs %}
-{% tab title="disconnect()" %}
+**disconnect():**
+
 ```javascript
 provider.disconnect();
 ```
-{% endtab %}
 
-{% tab title="request()" %}
+**request():**
+
 ```javascript
 provider.request({ method: "disconnect" });
 ```
-{% endtab %}
-{% endtabs %}
 
 The following is an example of how a React application can [gracefully handle](https://github.com/phantom-labs/sandbox/blob/b57fdd0e65ce4f01290141a01e33d17fd2f539b9/src/App.tsx#L107) a `disconnect` event.
 
